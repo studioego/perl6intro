@@ -17,16 +17,19 @@ Naoum Hankache <naoum@hankache.com>; DaeHyun Sung<sungdh86+git@gmail.com>
 
 This document is intended to give you a quick overview of the Perl 6 programming language.
 For those who are new to Perl 6 it should get you up and running.
+
 이 문서는 Perl6 프로그래밍 언어의 개요를 간략한 개요를 제공합니다.
 Perl6를 새로 시작하는 사람들에게, 시작하는 것을 목적으로 합니다.
 
 Some sections of this document refer to other (more complete and accurate) parts of the http://docs.perl6.org[Perl 6 documentation].
 You should read them if you need more information on a specific subject.
+
 이 문서의 각 절에는 http://docs.perl6.org[Perl6의 공식 문서]의 (더욱 완성되고 정확한) 부분을 참조합니다.
 특정 주제애 대한 더욱 많은 정보가 필요하다면, 그 부분을 읽어야 합니다.
 
 Throughout this document, you will find examples for most discussed topics.
 To better understand them, take the time to reproduce all examples.
+
 이 문서 전반에 걸쳐, 당신은 대부분의 논의 주제에 대한 예를 찾을 수 있습니다.
 이해를 돕기 위하여, 모든 예제들을 따라하는 것을 추천합니다.
 
@@ -68,8 +71,11 @@ link:https://github.com/hankache/perl6intro[Github].
 == 소개(Introduction)
 === Perl 6란 무엇인가요?
 Perl 6 is a high-level, general-purpose, gradually typed language.
+
 Perl 6(펄6)은 고수준, 일반 타입언어이다.
+
 Perl 6 is multi-paradigmatic. It supports Procedural, Object Oriented, and Functional programming.
+
 Perl 6는 멀티 패러다임 언어이다. 절차지향, 객제 지향, 함수형 프로그래밍을 지원한다. 
 
 .Perl 6 표어(Perl 6 motto):
@@ -80,16 +86,26 @@ Perl 6는 멀티 패러다임 언어이다. 절차지향, 객제 지향, 함수�
 
 === 전문용어(Jargon)
 * *Perl 6*: Is a language specification with a test suite.
-* *Perl 6*: 테스트스위트(test suite)를 포함한 언어 명세이다.
+* *Perl 6*: 테스트 항목(test suite)를 포함한 언어 명세이다.
+
 Implementations that pass the specification test suite are considered Perl 6.
-Implementations that pass the specification test suite are considered Perl 6.
+
+명세 테스트 항목을 통과한 구현은 Perl 6으로 간주됩니다.
+
 * *Rakudo*: Is a compiler for Perl 6.
+
 * *Rakudo*: Perl6를 위한 컴파일러이다.
+
 * *Rakudobrew*: Is an installation manager for Rakudo.
+
 * *Rakudobrew*: Rakudo를 위한 설치관리자이다.
+
 * *Zef*: Is a Perl 6 module installer.
+
 * *Zef*: Perl6 모듈 인스톨러이다.
+
 * *Rakudo Star*: Is a bundle that includes Rakudo, Zef, a collection of Perl 6 modules, and documentation.
+
 * *Rakudo Star*: Rakudo, Zef, Perl6 모듈과 문서의 집합을 포함하는 번들 소프트웨어이다.
 
 === Perl 6설치(Installing Perl 6)
@@ -111,6 +127,7 @@ For other options, go to http://rakudo.org/how-to-get-rakudo/#Installing-Rakudo-
 
 .OSX
 Four options are available:
+
 네 가지 선택이 가능합니다.
 
 * Follow the same steps listed for installing on Linux
@@ -143,6 +160,7 @@ and hit [Enter].  This will cause a prompt of `>` to appear.
 Next, type a line of code and hit [Enter]. The REPL will print out
 the value of the line.  You may then type another line, or type `exit`
 and hit [Enter] to leave the REPL.
+
 Perl6 코드를 실행하기는 REPL(Read-Eval-Print Loop)을 이용하여 수행할 수 있다.
 이 실행을 한다면, 터미널 창에서 `perl6`을 입력한다.
 그리고 [Enter]버튼을 누른다. 그러면 명령 프롬에 `>`가 나타난다.
@@ -155,6 +173,7 @@ Run the file by typing `perl6 filename.pl6` into the terminal window
 and hitting [Enter]. Unlike the REPL, this will not automatically print
 the result of each line: the code must contain a statement like `say`
 to print output.
+
 또는 파일에 코드를 작성하고 저장한 다음 실행하십시오.
 Perl 6 스크립트에는`.pl6` 파일 이름 확장자를 가지는 것을 추천한다.
 터미널 창에 `perl6 filename.pl6`을 입력하여 파일을 실행하십시오.
@@ -239,10 +258,10 @@ Expressions are made of *Terms* and *Operators*.
 
 |===
 
-==== Identifiers
+==== 식별자(Identifiers)
 Identifiers are the names given to terms when you define them.
 
-.Rules:
+.규칙(Rules):
 * They must start with an alphabetic character or an underscore.
 
 * They can contain digits (except the first character).
@@ -305,14 +324,19 @@ Comment 2
 =end comment
 -----------------------------
 
-==== Quotes
+==== 인용부호(Quotes)
 Strings need to be delimited by either double quotes or single quotes.
+
+문자열은 큰따옴표 혹은 작은따옴표로 둘러싸야 합니다.
 
 Always use double quotes:
 
-* if your string contains an apostrophe.
+다음의 경우에는 항상 쌍따옴표를 사용해야 합니다:
 
+* if your string contains an apostrophe.
+* 문자열에 아포스트로피를 포함할때.
 * if your string contains a variable that needs to be interpolated.
+* 문자열에 삽입해야할 변수를 포함할때.(보간이 필요한 변수를 포함한 문자열일때)
 
 [source,perl6]
 -----------------------------------
@@ -324,14 +348,14 @@ say 'Hello $name';   # Hello $name
 say "Hello $name";   # Hello John Doe
 -----------------------------------
 
-== Operators
+== 연산자(Operators)
 
-=== Common Operators
+=== 일반 연산자(Common Operators)
 The below table lists the most commonly used operators.
 [cols="^.^5m,^.^5m,.^20,.^20m,.^20m", options="header"]
 |===
 
-| Operator | Type | Description | Example | Result
+| 연산자(Operator) | 유형/타입(Type) | 설명(Description) | 예제(Example) | 결과(Result)
 
 | + | Infix | Addition | 1 + 2 | 3
 
@@ -443,7 +467,7 @@ The below table lists the most commonly used operators.
 
 |===
 
-=== Reversed Operators
+=== 뒤집기연산자(역전연산자)(Reversed Operators)
 
 Adding `R` before any operator will have the effect of reversing its operands.
 
@@ -457,7 +481,7 @@ Adding `R` before any operator will have the effect of reversing its operands.
 
 |===
 
-=== Reduction Operators
+=== 생략연산자(Reduction Operators)
 
 Reduction operators work on lists of values.
 They are formed by surrounding the operator with brackets `[]`
@@ -473,9 +497,12 @@ They are formed by surrounding the operator with brackets `[]`
 |===
 
 NOTE: For the complete list of operators, including their precedence, go to https://docs.perl6.org/language/operators
+주석: 연산자 우선순위를 포함한 연산자 목록의 상세내용을 보려면 다음의 링크를 참조하시기 바랍니다. https://docs.perl6.org/language/operators
 
-== Variables
+== 변수(Variables)
 Perl 6 variables are classified into 3 categories: Scalars, Arrays and Hashes.
+
+Perl6의 변수는 3개의 범주(카테고리)로 분류하고 있습니다.: 스칼라(Scalars), 배열(Arrays), 해쉬(Hashes).
 
 A *sigil* (Sign in Latin) is a character that is used as a prefix to categorize variables.
 
@@ -483,8 +510,10 @@ A *sigil* (Sign in Latin) is a character that is used as a prefix to categorize 
 * `@` is used for arrays
 * `%` is used for hashes
 
-=== Scalars
+=== 스칼라(Scalars)
 A scalar holds one value or reference.
+
+스칼라는 하나의 값 혹은 참조(레퍼런스)를 가집니다.
 
 [source,perl6]
 ----
@@ -516,6 +545,8 @@ eoD nhoJ
 
 NOTE: For the complete list of methods applicable to Strings, see https://docs.perl6.org/type/Str
 
+주석: Strings에 적합한 메소드 목록은 다음의 링크를 확인 하면 됩니다. https://docs.perl6.org/type/Str
+
 [source,perl6]
 .Integer
 ----
@@ -528,6 +559,8 @@ True
 ----
 
 NOTE: For the complete list of methods applicable to Integers, see https://docs.perl6.org/type/Int
+
+주석: Integer에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Int
 
 [source,perl6]
 .Rational Number
@@ -546,7 +579,7 @@ say $age.nude;
 
 NOTE: For the complete list of methods applicable to Rational Numbers, see https://docs.perl6.org/type/Rat
 
-=== Arrays
+=== 배열(Arrays)
 Arrays are lists containing multiple values.
 
 [source,perl6]
@@ -560,7 +593,7 @@ Many operations can be done on arrays as shown in the below example:
 TIP: The tilde `~` is used for string concatenation.
 
 [source,perl6]
-.`Script`
+.`스크립트(Script)`
 ----
 my @animals = 'camel','vicuña','llama';
 say "The zoo contains " ~ @animals.elems ~ " animals";
@@ -575,7 +608,7 @@ say "We're closing the zoo and keeping one animal only";
 say "We're going to let go: " ~ @animals.splice(1,2) ~ " and keep the " ~ @animals;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 The zoo contains 3 animals
 The animals are: camel vicuña llama
@@ -587,15 +620,16 @@ We're closing the zoo and keeping one animal only
 We're going to let go: vicuña llama and keep the camel
 ----
 
-.Explanation
+.설명(Explanation)
 `.elems` returns the number of elements in an array. +
 `.push()` adds one or more elements to the array. +
 We can access a specific element in the array by specifying its position `@animals[0]`. +
 `.pop` removes the last element from the array and returns it. +
 `.splice(a,b)` will remove `b` elements starting at position `a`.
 
-==== Fixed-size arrays
+==== 고정크기 배열(Fixed-size arrays)
 A basic array is declared as following:
+기본적인 배열은 다음과 같이 선언된다:
 [source,perl6]
 my @array;
 
@@ -633,7 +667,7 @@ my @array[3];
 Index 3 for dimension 1 out of range (must be 0..2)
 ----
 
-==== Multidimensional arrays
+==== 다차원배열(Multidimensional arrays)
 The arrays we saw until now are one-dimensional. +
 Fortunately, we can define multi-dimensional arrays in Perl 6.
 
@@ -661,7 +695,7 @@ say @tbl
 [[1 x] [2 y] [3 z]]
 ----
 
-.Visual representation of the array:
+.배열의 시각적 표현(Visual representation of the array):
 ----
 [1 x]
 [2 y]
@@ -670,7 +704,7 @@ say @tbl
 
 NOTE: For the complete Array reference, see https://docs.perl6.org/type/Array
 
-=== Hashes
+=== 해쉬(Hashes)
 [source,perl6]
 .A Hash is a set of Key/Value pairs.
 ----
@@ -687,7 +721,7 @@ say %capitals;
 
 Some of the methods that can be called on hashes are:
 [source,perl6]
-.`Script`
+.`스크립트(Script)`
 ----
 my %capitals = (UK => 'London', Germany => 'Berlin');
 %capitals.push: (France => 'Paris');
@@ -697,7 +731,7 @@ say %capitals.values;
 say "The capital of France is: " ~ %capitals<France>;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 (France Paris Germany Berlin UK London)
 (France Germany UK)
@@ -705,7 +739,7 @@ say "The capital of France is: " ~ %capitals<France>;
 The capital of France is: Paris
 ----
 
-.Explanation
+.설명(Explanation)
 `.push: (key => 'Value')` adds a new key/value pair. +
 `.kv` returns a list containing all keys and values. +
 `.keys` returns a list that contains all keys. +
@@ -714,7 +748,7 @@ We can access a specific value in the hash by specifying its key `%hash<key>`
 
 NOTE: For the complete Hash reference, see https://docs.perl6.org/type/Hash
 
-=== Types
+=== 타입/형(Types)
 In the previous examples, we did not specify what type of values the variables should hold.
 
 TIP: `.WHAT` will return the type of value held in a variable.
@@ -753,7 +787,7 @@ This style of programming is called static typing. Static in the sense that vari
 
 Perl 6 is classified as *gradually typed*; it allows both *static* and *dynamic* typing.
 
-.Arrays and hashes can also be statically typed:
+.배열과 해쉬는 또한 정적타입(정적형)으로 할수 있다.(Arrays and hashes can also be statically typed):
 [source,perl6]
 ----
 my Int @array = 1,2,3;
@@ -773,7 +807,7 @@ say %country-codes;
 say %country-codes.WHAT;
 ----
 
-.Below is a list of the most commonly used types:
+.다음은 가장 자주 사용하는 타입의 목록들이다.(Below is a list of the most commonly used types):
 You will most probably never use the first two but they are listed for informational purpose.
 
 [cols="^.^1m,.^3m,.^2m,.^1m, options="header"]
@@ -797,7 +831,7 @@ You will most probably never use the first two but they are listed for informati
 
 |===
 
-=== Introspection
+=== 인트로스펙션/내부조사(Introspection)
 
 Introspection is the process of getting information about an object properties like its type. +
 In one of the previous example we used `.WHAT` to return the type of the variable.
@@ -858,7 +892,7 @@ my Int $var = 123;
 say $var;
 ----
 
-=== Assignment vs. Binding
+=== 할당/배정 vs. 바인딩(Assignment vs. Binding)
 We've seen in the previous examples, how to *assign* values to variables. +
 *Assignment* is done using the `=` operator.
 [source,perl6]
@@ -870,7 +904,7 @@ say $var;
 We can change the value assigned to a variable:
 
 [source,perl6]
-.Assignment
+.할당(Assignment)
 ----
 my Int $var = 123;
 say $var;
@@ -878,7 +912,7 @@ $var = 999;
 say $var;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 123
 999
@@ -888,7 +922,7 @@ On the other hand, we cannot change the value *bound* to a variable. +
 *Binding* is done using the `:=` operator.
 
 [source,perl6]
-.Binding
+.바인딩(Binding)
 ----
 my Int $var := 123;
 say $var;
@@ -896,7 +930,7 @@ $var = 999;
 say $var;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 123
 Cannot assign to an immutable value
@@ -914,7 +948,7 @@ $b = 8;
 say $a;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 7
 8
@@ -925,14 +959,14 @@ Binding variables, as you already remarked, is bi-directional. +
 
 NOTE: For more info on variables, see https://docs.perl6.org/language/variables
 
-== Functions and mutators
+== 함수와 뮤테이터/설정자(Functions and mutators)
 
 It is important to differentiate between functions and mutators. +
 Functions do not change the initial state of the object they were called on. +
 Mutators modify the state of the object.
 
 [source,perl6,linenums]
-.`Script`
+.`스크립트(Script)`
 ----
 my @numbers = [7,2,4,9,11,3];
 
@@ -946,7 +980,7 @@ say @numbers;      #3
 say @numbers;      #4
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 [7 2 4 9 11 3 99] #1
 (2 3 4 7 9 11 99) #2
@@ -954,7 +988,7 @@ say @numbers;      #4
 [2 3 4 7 9 11 99] #4
 ----
 
-.Explanation
+.설명(Explanation)
 `.push` is a mutator, it changes the state of the array (#1)
 
 `.sort` is a function, it returns a sorted array but doesn't modify the state of the initial array:
@@ -965,7 +999,7 @@ say @numbers;      #4
 
 In order to enforce a function to act as a mutator, we use `.=` instead of `.` (#4) (Line 9 of the script)
 
-== Loops and conditions
+== 반복문과 조건문(Loops and conditions)
 Perl 6 has a multitude of conditionals and looping constructs.
 
 === if
@@ -1131,10 +1165,10 @@ loop (my $i = 0; $i < 5; $i++) {
 
 NOTE: For more info on loops and conditions, see https://docs.perl6.org/language/control
 
-== I/O
+== 입출력(I/O)
 In Perl 6, two of the most common _Input/Output_ interfaces are the _Terminal_ and _Files_.
 
-=== Basic I/O using the Terminal
+=== 터미널을 사용한 기본 입출력(Basic I/O using the Terminal)
 
 ==== say
 `say` writes to the standard output. It appends a newline at the end. In other words, the following code:
@@ -1179,7 +1213,7 @@ my $name = prompt "Hi, what's your name? ";
 say "Dear $name welcome to Perl 6";
 ----
 
-=== Running Shell Commands
+=== 쉘 명령어 실행(Running Shell Commands)
 Two subroutines can be used to run shell commands:
 
 * `run` Runs an external command without involving a shell
@@ -1207,7 +1241,7 @@ shell "dir";
 `dir` is the equivalent of `ls` on Windows.
 
 
-=== File I/O
+=== 파일 입출력(File I/O)
 ==== slurp
 `slurp` is used to read data from a file.
 
@@ -1241,7 +1275,7 @@ spurt "newdatafile.txt", $newdata;
 
 After running the above code, a new file named _newdatafile.txt_ will be created. It will contain the new scores.
 
-=== Working with files and directories
+=== 파일과 디렉토리의 조작(Working with files and directories)
 Perl 6 can list the contents of a directory without running shell commands (using `ls`) as seen in a previous example.
 
 [source,perl6]
@@ -1287,8 +1321,8 @@ WARNING: Windows users can use `/` or `\\` to define directories +
 
 NOTE: For more info on I/O, see https://docs.perl6.org/type/IO
 
-== Subroutines
-=== Definition
+== 서브루틴(Subroutines)
+=== 정의(Definition)
 *Subroutines* (also called *subs* or *functions*) are a means of packaging a set of functionality. +
 
 A subroutine definition begins with the keyword `sub`. After their definition, they can be called by their handle. +
@@ -1321,7 +1355,7 @@ say-hello "Paul";
 say-hello "Paula";
 ----
 
-=== Multiple dispatch
+=== 다중 디스패치(Multiple dispatch)
 It is possible to define multiple subroutines having the same name but different signatures.
 When the subroutine is called, the runtime environment will decide which version to use depending on the number and type of the supplied arguments.
 This type of subroutines is defined the same way as normal subs with the exception of swapping the `sub` keyword with `multi`.
@@ -1339,7 +1373,7 @@ greet "Johnnie";
 greet "Laura","Mrs.";
 ----
 
-=== Default and Optional Parameters
+=== 기본 및 선택 파라미터(Default and Optional Parameters)
 If a subroutine is defined to accept an argument, and we call it without providing it with the required argument, it will fail.
 
 Alternatively Perl 6 provides us the ability to define subroutines with:
@@ -1371,14 +1405,14 @@ say-hello;
 say-hello("Laura");
 ----
 
-=== Returning values
+=== 반환 값(Returning values)
 All the subroutines we saw so far *do something*, they display some text on the terminal.
 
 While this is perfectly normal, sometimes we do want a subroutine to *return* some kind of value that we can reuse later in the flow of our program.
 
 Under normal circumstances, the last line of code of a subroutine is considered to be the return value.
 [source,perl6]
-.Implicit return
+.암묵적 반환(Implicit return)
 ----
 sub squared ($x) {
   $x ** 2;
@@ -1389,14 +1423,14 @@ say "7 squared is equal to " ~ squared(7);
 Once our code gets bigger, it might be a good idea to _explicitly_ specify what we do want to return.
 This can be done using the `return` keyword.
 [source,perl6]
-.Explicit return
+.명시적 반환(Explicit return)
 ----
 sub squared ($x) {
   return $x ** 2;
 }
 say "7 squared is equal to " ~ squared(7);
 ----
-==== Restricting return values
+==== 제한된 반환 값(Restricting return values)
 In one of the previous examples, we saw how we can restrict the accepted argument to be of a certain type.
 The same can be done with return values.
 
@@ -1446,8 +1480,9 @@ say "1.2 squared is equal to " ~ squared(1.2);
 ====
 
 NOTE: For more info on subroutines and functions, see https://docs.perl6.org/language/functions
+주석: 서브루틴과 함수에 대한 더 많은 정보는 다음을 참조하시기 바랍니다. https://docs.perl6.org/language/functions
 
-== Functional Programming
+== 함수형 프로그래밍(Functional Programming)
 In this chapter we will take a look at some of the functionality that facilitates Functional Programming.
 
 === Functions are first-class citizens
@@ -1472,19 +1507,19 @@ sub squared($x) {
 say map(&squared,@array);
 ----
 
-.Output
+.출력(Output)
 ----
 (1 4 9 16 25)
 ----
 
-.Explanation
+.설명(Explanation)
 We defined a subroutine called `squared`, it will take to the power of two any number provided as argument. +
 Next, we used `map`, a higher order function and gave it two arguments, a subroutine and an array. +
 The result is a list of all squared elements of the array.
 
 Notice that when passing a subroutine as an argument, we need to prepend `&` to its name.
 
-=== Anonymous functions
+=== 익명함수(Anonymous functions)
 An *anonymous function* is also called a *lambda*. +
 An anonymous function is not bound to an identifier (it has no name).
 
@@ -1548,7 +1583,7 @@ my @array = <7 8 9 0 1 2 4 3 5 6 7 8 9>;
 say @final-array;
 ----
 
-.Explanation
+.설명(Explanation)
 ----
 Start with `@array` then return a list of unique elements
                     then sort it
@@ -1569,7 +1604,7 @@ my @final-array-v2 <== reverse()
 say @final-array-v2;
 ----
 
-.Explanation
+.설명(Explanation)
 The backward feed is like the forward feed, but written in reverse. +
 The flow of the method calls is bottom-up.
 
@@ -1607,7 +1642,7 @@ if $var == 1|2|3 {
 The use of junctions usually triggers *autothreading*;
 the operation is carried out for each junction element, and all the results are combined into a new junction and returned.
 
-=== Lazy Lists
+=== 지연 목록/지연 리스트(Lazy Lists)
 A *lazy list* is a list that is lazily evaluated. +
 Lazy evaluation delays the evaluation of an expression until required, and avoids repeating evaluations by storing results in a lookup table.
 
@@ -1681,7 +1716,7 @@ say $lazylist;
 ----
 ====
 
-=== Closures
+=== 클로저(Closures)
 All code objects in Perl 6 are closures, which means they can reference lexical variables from an outer scope.
 
 [source,perl6]
@@ -1734,11 +1769,11 @@ one that says `Good Morning` and one that says `Good Evening`.
 `$morning` and `$evening` are both closures. They share the same subroutine body definition, but store different environments. +
 In `$morning` 's environment `$period` is `Morning`. In `$evening` 's environment `$period` is `Evening`.
 
-== Classes & Objects
+== 클래스와 객체(Classes & Objects)
 In the previous chapter, we learned how Perl 6 facilitates Functional Programming. +
 In this chapter we will take a look at Object Oriented programming in Perl 6.
 
-=== Introduction
+=== 소개(Introduction)
 
 _Object Oriented_ programming is one of the widely used paradigms nowadays. +
 An *object* is a set of variables and subroutines bundled together. +
@@ -1789,21 +1824,21 @@ my class Human {
 }
 ----
 
-=== Encapsulation
+=== 갭슐화(Encapsulation)
 Encapsulation  is an object oriented concept that bundles a set of data and methods together. +
 The data (attributes) within an object should be *private*, in other words, accessible only from within the object. +
 In order to access the attributes from outside the object we use methods that we call *accessors*.
 
 The below two scripts have the same result.
 
-.Direct access to the variable:
+.변수로 직접 접근(Direct access to the variable):
 [source,perl6]
 ----
 my $var = 7;
 say $var;
 ----
 
-.Encapsulation:
+.캡슐화(Encapsulation):
 [source,perl6]
 ----
 my $var = 7;
@@ -1874,9 +1909,9 @@ my $john = Human.new('John',23,'M','American');
 say $john;
 ----
 
-=== Methods
+=== 메소드(Methods)
 
-==== Introduction
+==== 소개(Introduction)
 Methods are the _subroutines_ of an object. +
 Like subroutines, they are a means of packaging a set of functionality, they accept *arguments*, have a *signature* and can be defined as *multi*.
 
@@ -1922,7 +1957,7 @@ In the above example `if self.age < 21` and `if $!age < 21` would have the same 
 Can be written alternatively as `$.age`
 * `$!age` is a direct call to the variable
 
-==== Private methods
+==== Private 메소드(Private methods)
 Normal methods can be called on objects from outside the class.
 
 *Private methods* are methods that can only be called from within the class. +
@@ -1945,7 +1980,7 @@ method iampublic {
 }
 ----
 
-=== Class Attributes
+=== 클래스 속성(Class Attributes)
 
 *Class attributes* are attributes that belong to the class itself and not to its objects. +
 They can be initialized during definition. +
@@ -1968,7 +2003,7 @@ my $b = Human.new('b');
 say Human.counter;
 ----
 
-=== Access Type
+=== 접근유형/접근타입(Access Type)
 Until now all the examples that we've seen, used accessors to get information from the objects' attributes.
 
 What if we need to modify the value of an attribute? +
@@ -1987,8 +2022,8 @@ say $john.age;
 ----
 By default, all attributes are declared as _read only_ but you can explicitly do it using `is readonly`
 
-=== Inheritance
-==== Introduction
+=== 상속(Inheritance)
+==== 소개(Introduction)
 *Inheritance* is another concept of object oriented programming.
 
 When defining classes, soon enough we will realize that some attributes/methods are common to many classes. +
@@ -2034,7 +2069,7 @@ In object oriented parlance we say Employee is a *child* of Human, and Human is 
 
 All child classes inherit the attributes and methods of the parent class, so there is no need to redefine them.
 
-==== Overriding
+==== 오버라이딩(Overriding)
 Classes inherit all attributes and methods from their parent classes. +
 There are cases where we need the method in the child class to behave differently than the one inherited. +
 To achieve this, we redefine the method in the child class. +
@@ -2093,12 +2128,12 @@ $jane.introduce-yourself;
 
 Depending of which class the object is, the right method will be called.
 
-==== Submethods
+==== 서브메소드(Submethods)
 *Submethods* are a type of method that are not inherited by child classes. +
 They are only accessible from the class they were declared in. +
 They are defined using the `submethod` keyword.
 
-=== Multiple Inheritance
+=== 다중상속(Multiple Inheritance)
 Multiple inheritance is allowed in Perl 6. A class can inherit from multiple other classes.
 
 [source,perl6]
@@ -2133,7 +2168,7 @@ say "Actual vs Forecast:";
 $actual-vs-forecast.plot;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 Actual sales:
 [10 9 11 8 7 10]
@@ -2143,7 +2178,7 @@ Actual vs Forecast:
 [10 9 11 8 7 10]
 ----
 
-.Explanation
+.설명(Explanation)
 The `combo-chart` class should be able to hold two series, one for the actual values plotted on bars,
 and another for forecast values plotted on a line. +
 This is why we defined it as a child of `line-chart` and `bar-chart`. +
@@ -2192,7 +2227,7 @@ say "Actual vs Forecast:";
 $actual-vs-forecast.plot;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 Actual sales:
 [10 9 11 8 7 10]
@@ -2283,19 +2318,19 @@ say "Actual vs Forecast:";
 $actual-vs-forecast.plot;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 ===SORRY!===
 Method 'plot' must be resolved by class combo-chart because it exists in multiple roles (line-chart, bar-chart)
 ----
 
-.Explanation
+.설명(Explanation)
 If multiple roles are applied to the same class, and a conflict arises, a compile-time error will be thrown. +
 This is a much safer approach than multiple inheritance where conflicts are not considered errors and are simply resolved at runtime.
 
 Roles will warn you that there's a conflict.
 
-=== Introspection
+=== 인트로스펙션/내부조사(Introspection)
 *Introspection* is the process of getting information about an object properties like its type, or its attributes or its methods.
 
 [source,perl6]
@@ -2341,16 +2376,16 @@ Introspection is facilitated by:
 * `~~` is called the smart-match operator.
 It evaluates to _True_ if the object is created from the class it is being compared against or any of its inheritances.
 
-[NOTE]
+[주석(NOTE)]
 --
 For more info on Object Oriented Programming in Perl 6, see:
 
 * https://docs.perl6.org/language/classtut
 * https://docs.perl6.org/language/objects
 --
-== Exception Handling
+== 예외처리(Exception Handling)
 
-=== Catching Exceptions
+=== 예외잡기(Catching Exceptions)
 *Exceptions* are a special behavior that happens at runtime when something goes wrong. +
 We say that exceptions are _thrown_.
 
@@ -2364,7 +2399,7 @@ say "Hello " ~ $name;
 say "How are you doing today?"
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 Hello Joanna
 How are you doing today?
@@ -2380,7 +2415,7 @@ say "Hello " ~ $name;
 say "How are you doing today?"
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 Type check failed in assignment to $name; expected Str but got Int
    in block <unit> at exceptions.pl6:2
@@ -2405,7 +2440,7 @@ try {
 say "How are you doing today?";
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 Can you tell us your name again, we couldn't find it in the register.
 How are you doing today?
@@ -2445,7 +2480,7 @@ try {
 }
 ----
 
-=== Throwing Exceptions
+=== 예외 던지기(Throwing Exceptions)
 In contrast to catching exceptions, Perl 6 also allows you to explicitly throw exceptions. +
 Two types of exceptions can be thrown:
 
@@ -2479,7 +2514,7 @@ All typed exceptions descend from class `X` , below are a few examples: +
 NOTE: For a complete list of exception types and their associated methods go to https://docs.perl6.org/type-exceptions.html
 
 
-== Regular Expressions
+== 정규표현식(Regular Expressions)
 A regular expression, or _regex_ is a sequence of characters that is used for pattern matching. +
 The easiest way to understand it is to think of it as a pattern.
 
@@ -2493,7 +2528,7 @@ if 'enlightenment' ~~ m/ light / {
 In this example, the smart match operator `~~` is used to check if a string (enlightenment) contains the word (light). +
 "Enlightenment" is matched against a regex `m/ light /`
 
-=== Regex definition
+=== 정규표현식 정의(Regex definition)
 
 A regular expression can be defined as follows:
 
@@ -2505,7 +2540,7 @@ A regular expression can be defined as follows:
 
 Unless specified explicitly, white space is irrelevant, `m/light/` and `m/ light /` are the same.
 
-=== Matching characters
+=== 문자열 일치(Matching characters)
 Alphanumeric characters and the underscore `_` are written as is. +
 All other characters have to be escaped using a backslash or surrounded by quotes.
 
@@ -2518,7 +2553,7 @@ if 'Temperature: 13' ~~ m/ \: / {
 ----
 
 [source,perl6]
-.Single quotes
+.작은따옴표(Single quotes)
 ----
 if 'Age = 13' ~~ m/ '=' / {
     say "The string provided contains an equal character = ";
@@ -2526,14 +2561,14 @@ if 'Age = 13' ~~ m/ '=' / {
 ----
 
 [source,perl6]
-.Double quotes
+.큰따옴표(Double quotes)
 ----
 if 'name@company.com' ~~ m/ "@" / {
     say "This is a valid email address because it contains an @ character";
 }
 ----
 
-=== Matching categories of characters
+=== 문자 종류/문자범주/문자카테고리의 매칭(Matching categories of characters)
 Characters can be classified into categories and we can match against them. +
 We can also match against the inverse of that category (everything except it):
 
@@ -2571,7 +2606,7 @@ if "John-Doe" ~~ / \s / {
 }
 ----
 
-=== Unicode properties
+=== 유니코드 속성(Unicode properties)
 Matching against categories of characters as seen in the preceding section is convenient. +
 That being said, a more systematic approach would be to use of Unicode properties. +
 Unicode properties are enclosed in `<: >`
@@ -2595,7 +2630,7 @@ if "John-Doe" ~~ / <:Pd> / {
 }
 ----
 
-=== Wildcards
+=== 와일드카드(Wildcards)
 Wildcards can also be used in a regex.
 
 The dot `.` means any single character.
@@ -2615,7 +2650,7 @@ if 'ac' ~~ m/ a.c / {
 }
 ----
 
-=== Quantifiers
+=== 수량자(Quantifiers)
 Quantifiers come after a character and are used to specify how many times we are expecting it.
 
 The question mark `?` means zero or one time.
@@ -2686,7 +2721,7 @@ if 'z' ~~ m/ a+z / {
 }
 ----
 
-=== Match Results
+=== 일치 결과(Match Results)
 Whenever the process of matching a string against a regex is successful,
 the match result is stored in a special variable `$/`
 
@@ -2702,7 +2737,7 @@ if 'Rakudo is a Perl 6 compiler' ~~ m/:s Perl 6/ {
 }
 ----
 
-.Output
+.출력(Output)
 ----
 The match is: Perl 6
 The string before the match is: Rakudo is a
@@ -2711,7 +2746,7 @@ The matching string starts at position: 12
 The matching string ends at position: 18
 ----
 
-.Explanation
+.설명(Explanation)
 `$/` returns a _Match Object_ (the string that matches the regex) +
 The following methods can be called on the _Match Object_: +
 `.prematch` returns the string preceding the match. +
@@ -2725,7 +2760,7 @@ The `:s` in the regex `m/:s Perl 6/` forces whitespace to be considered and not 
 Alternatively we could have written the regex as `m/ Perl\s6 /` and used `\s` which as we saw earlier is a placeholder for whitespace. +
 If a regex contains more than a single whitespace, using `:s` becomes more effective in contrast with using `\s` for each and every whitespace.
 
-=== Example
+=== 예제(Example)
 Let's check if an email is valid or not. +
 For the sake of this example we will assume that a valid email address is formed as following: +
 first name [dot] last name [at] company [dot] (com/org/net)
@@ -2747,10 +2782,10 @@ if $email ~~ $regex {
 }
 ----
 
-.Output
+.출력(Output)
 `john.doe@perl6.org is a valid email`
 
-.Explanation
+.설명(Explanation)
 `<:L>` matches a single letter +
 `<:L>+` matches a single letter or more +
 `\.` matches a single [dot] character +
@@ -2811,7 +2846,7 @@ To install a specific module, type the below command in your terminal:
 
 NOTE: The Perl 6 modules directory can be found on: https://modules.perl6.org/
 
-=== Using Modules
+=== 모듈의 사용(Using Modules)
 MD5 is a cryptographic hash function that produces a 128-bit hash value. +
 MD5 has a variety of applications of which encryption of passwords stored in a database.
 When a new user registers, their credentials are not stored as plain text but rather _hashed_.
@@ -2837,7 +2872,7 @@ The `use` keyword loads the module for use in the script.
 WARNING: In practice MD5 hashing alone is not sufficient, because it is prone to dictionary attacks. +
 It should be combined with a salt link:https://en.wikipedia.org/wiki/Salt_(cryptography)[https://en.wikipedia.org/wiki/Salt_(cryptography)].
 
-== Unicode
+== 유니코드(Unicode)
 
 Unicode is a standard for encoding and representing text, that caters for most writing systems in the world. +
 UTF-8 is a character encoding capable of encoding all possible characters, or code points, in Unicode.
@@ -2846,7 +2881,7 @@ Characters are defined by a: +
 *Grapheme*: Visual representation. +
 *Code point*: A number assigned to the character.
 
-=== Using Unicode
+=== 유니코드의 사용(Using Unicode)
 
 .Let's look at how we can output characters using Unicode
 [source,perl6]
@@ -2894,7 +2929,7 @@ say "á".NFD;
 say "á".uniname;
 ----
 
-.`Output`
+.`출력(Output)`
 ----
 NFC:0x<00e1>
 NFD:0x<0061 0301>
@@ -2920,9 +2955,9 @@ my $var = 2 + ⅒;
 say $var;
 ----
 
-== Parallelism, Concurrency and Asynchrony
+== 병렬처리, 동시성, 비동기성(Parallelism, Concurrency and Asynchrony)
 
-=== Parallelism
+=== 병렬처리(Parallelism)
 Under normal circumstances, all tasks in a program run sequentially. +
 This might not be a problem unless what you're trying to do is consuming a lot of time.
 
@@ -2935,7 +2970,7 @@ At this stage, it is important to note that parallelism can mean one of two thin
 
 Let's begin with the latter.
 
-==== Data Parallelism
+==== 데이터 병렬처리(Data Parallelism)
 [source,perl6]
 ----
 my @array = (0..50000);                     #Array population
@@ -2985,7 +3020,7 @@ If you run both examples, you should notice that one is sorted and the other is 
 
 ====
 
-==== Task Parallelism
+==== 작업/태스크 병렬처리(Task Parallelism)
 
 [source,perl6]
 ----
