@@ -104,7 +104,7 @@ Implementations that pass the specification test suite are considered Perl 6.
 . Zef를 설치한다: 터미널에서 다음의 명령어를 입력하면 된다. `rakudobrew build zef`
 
 . Install Task::Star a meta-package for modules included in Rakudo Star: Type the following command in the terminal `zef install Task::Star`
-. Install Task::Star a meta-package for modules included in Rakudo Star: Type the following command in the terminal `zef install Task::Star`
+. Rakudo Star에 포함된 모듈에 대한 메타 패키지 Task::Star를 설치한다: 다음 명령어를 터미널에 입력합니다. `zef install Task::Star` 
 
 For other options, go to http://rakudo.org/how-to-get-rakudo/#Installing-Rakudo-Star-Linux
 다른 선택 사항에 대하여,  http://rakudo.org/how-to-get-rakudo/#Installing-Rakudo-Star-Linux 에서 확인하면 된다.
@@ -3047,6 +3047,7 @@ This is why, using `race`, `hyper`, `start` and `await` for fairly simple script
 === 병행성과 비동기(Concurrency and Asynchrony)
 NOTE: For more info on Concurrency and Asynchronous Programming, see https://docs.perl6.org/language/concurrency
 주석: 병행성과 비동기 프로그래밍에 대한 더 많은 정보에 대하여, https://docs.perl6.org/language/concurrency 를 참조하세요.
+
 == 커뮤니티(The Community)
 
 * link:irc://irc.freenode.net/#perl6[#perl6] IRC channel. Much discussion happens on IRC. This should be your go to place for any enquiry: https://perl6.org/community/irc
@@ -3056,7 +3057,7 @@ NOTE: For more info on Concurrency and Asynchronous Programming, see https://doc
 * link:https://p6weekly.wordpress.com[p6weekly] 주간의 Perl6과 주변에 대한 바뀐 점의 요약을 알려드립니다.
 
 * link:http://pl6anet.org[pl6anet] blog aggregator. Stay tuned by reading blog posts that focus on Perl 6.
-* link:http://pl6anet.org[pl6anet] 블로그 수집기. Perl6에 초첨을 둔 블로그 글들을  Stay tuned by reading blog posts that focus on Perl 6.
+* link:http://pl6anet.org[pl6anet] 블로그 취합 사이트. Perl6에 초첨을 둔 블로그 글들을 계속 지켜봐주십시오.
 
 * link:https://www.reddit.com/r/perl6/[/r/perl6] Subscribe to the Perl 6 subreddit.
 * link:https://www.reddit.com/r/perl6/[/r/perl6] Perl6의 subreddit에 구독하세요.
