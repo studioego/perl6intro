@@ -61,6 +61,7 @@ Kindly prefix your commit title with the language it is targeting. For example, 
 * Dutch Translation: [Elizabeth Mattijsen](https://github.com/lizmat)
 * Bulgarian Translation: [Красимир Беров](https://github.com/kberov)
 * Chinese Translation: [wenjie1991](https://github.com/wenjie1991) and [ohmycloud](https://ohmycloud.github.io)
+* Korean Translation: [studioego](http://github.com/studioego)
 
 For the full list of contributors: https://github.com/hankache/perl6intro/graphs/contributors
 
