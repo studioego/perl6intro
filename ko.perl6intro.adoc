@@ -1,5 +1,7 @@
 = Perl6 입문
+
 Naoum Hankache <naoum@hankache.com>; DaeHyun Sung<sungdh86+git@gmail.com>
+
 :description: Perl6에 대한 소개
 :Author: Naoum Hankache
 :keywords: perl6, perl 6, introduction, perl6intro, perl 6 introduction, perl 6 tutorial, perl 6 intro, 소개, perl6소개, perl6 소개, perl 6 소개, perl6 튜토리얼, perl 6 튜토리얼, perl 6 인트로
