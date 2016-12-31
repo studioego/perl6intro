@@ -1,7 +1,5 @@
 = Perl6 입문
-
 Naoum Hankache <naoum@hankache.com>; DaeHyun Sung<sungdh86+git@gmail.com>
-
 :description: Perl6에 대한 소개
 :Author: Naoum Hankache
 :keywords: perl6, perl 6, introduction, perl6intro, perl 6 introduction, perl 6 tutorial, perl 6 intro, 소개, perl6소개, perl6 소개, perl 6 소개, perl6 튜토리얼, perl 6 튜토리얼, perl 6 인트로
@@ -15,7 +13,6 @@ Naoum Hankache <naoum@hankache.com>; DaeHyun Sung<sungdh86+git@gmail.com>
 :doctype: book
 :toc-title: 목차
 :lang: ko
-
 
 This document is intended to give you a quick overview of the Perl 6 programming language.
 For those who are new to Perl 6 it should get you up and running.
@@ -76,7 +73,7 @@ link:https://github.com/hankache/perl6intro[Github].
 
 :sectnums:
 == 소개(Introduction)
-=== Perl 6란 무엇인가요?
+=== Perl6은 무엇인가요?
 Perl 6 is a high-level, general-purpose, gradually typed language.
 
 Perl6(펄6)은 고수준, 범용, 점진적인 타입 언어이다.
