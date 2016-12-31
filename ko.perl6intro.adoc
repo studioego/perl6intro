@@ -57,7 +57,7 @@ All feedback is welcomed:
 If you liked this work, _Star_ the repository on
 link:https://github.com/hankache/perl6intro[Github].
 
-이 Perl6 문서에 관심이 있다면,  리파지토리(저장소)에 _별표_를 누르기 바랍니다.
+이 Perl6 문서에 관심이 있다면, 리파지토리(저장소)에 _별표_를 누르기 바랍니다.
 link:https://github.com/hankache/perl6intro[Github].
 
 .번역(Translations)
@@ -73,16 +73,16 @@ link:https://github.com/hankache/perl6intro[Github].
 
 :sectnums:
 == 소개(Introduction)
-=== Perl6은 무엇인가요?
+=== Perl6는 무엇인가요?
 Perl 6 is a high-level, general-purpose, gradually typed language.
 
-Perl6(펄6)은 고수준, 범용, 점진적인 타입 언어이다.
+Perl6는 고수준, 범용, 점진적인 타입 언어이다.
 
 Perl 6 is multi-paradigmatic. It supports Procedural, Object Oriented, and Functional programming.
 
-Perl 6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수형 프로그래밍을 지원한다.
+Perl6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수형 프로그래밍을 지원한다.
 
-.Perl 6 표어(Perl 6 motto):
+.Perl6 표어(Perl 6 motto):
 * TMTOWTDI (Pronounced Tim Toady): There is more than one way to do it.
 * TMTOWTDI (Tim Toady로 발음한다): There is more than one way to do it. 어떤 일을 해결하는 데에 하나 이상의 방법이 있다. (여러 방법이 존재한다.)
 * Easy things should stay easy, hard things should get easier, and impossible things should get hard.
@@ -90,11 +90,11 @@ Perl 6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수
 
 === 전문용어(Jargon)
 * *Perl 6*: Is a language specification with a test suite.
-* *Perl 6*: 테스트 항목(test suite)를 포함한 언어 명세이다.
+* *Perl6*: 테스트 항목(test suite)를 포함한 언어 명세이다.
 
 Implementations that pass the specification test suite are considered Perl 6.
 
-명세 테스트 항목을 통과한 구현은 Perl 6으로 간주됩니다.
+명세 테스트 항목을 통과한 구현은 Perl6으로 간주됩니다.
 
 * *Rakudo*: Is a compiler for Perl 6.
 
@@ -112,7 +112,7 @@ Implementations that pass the specification test suite are considered Perl 6.
 
 * *Rakudo Star*: Rakudo, Zef, Perl6 모듈과 문서의 집합을 포함하는 번들 소프트웨어이다.
 
-=== Perl 6설치(Installing Perl 6)
+=== Perl6 설치(Installing Perl 6)
 .리눅스(Linux)
 . Install Rakudobrew: https://github.com/tadzik/rakudobrew
 . Rakudobrew를 설치한다: https://github.com/tadzik/rakudobrew
@@ -156,7 +156,7 @@ If your system architecture is 32-bit, download the x86 file; if it's 64-bit, do
 . Then run a container with the image `docker run -it rakudo-star`
 . 이미지가 들어간 컨테이너를 실행시키십시오. `docker run -it rakudo-star`
 
-=== 펄 6 코드를 실행시키기(Running Perl 6 code)
+=== Perl6 코드를 실행시키기(Running Perl 6 code)
 
 Running Perl 6 code can be done using the REPL (Read-Eval-Print Loop).
 To do this, open a terminal, type `perl6` into the terminal window,
