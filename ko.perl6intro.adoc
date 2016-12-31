@@ -17,8 +17,8 @@ Naoum Hankache <naoum@hankache.com>; DaeHyun Sung<sungdh86+git@gmail.com>
 This document is intended to give you a quick overview of the Perl 6 programming language.
 For those who are new to Perl 6 it should get you up and running.
 
-이 문서는 Perl6 프로그래밍 언어의 개요를 간략한 개요를 제공합니다.
-Perl6를 새로 시작하는 사람들에게, 시작하는 것을 목적으로 합니다.
+이 문서는 Perl6 프로그래밍 언어의 간략한 개요를 제공합니다.
+Perl6를 처음 접하는 사람들에게 시작하는 것을 목적으로 합니다.
 
 Some sections of this document refer to other (more complete and accurate) parts of the http://docs.perl6.org[Perl 6 documentation].
 You should read them if you need more information on a specific subject.
