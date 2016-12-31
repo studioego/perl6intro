@@ -74,14 +74,14 @@ link:https://github.com/hankache/perl6intro[Github].
 
 :sectnums:
 == 소개(Introduction)
-=== Perl 6란 무엇인가요?
+=== Perl6는 무엇인가요?
 Perl 6 is a high-level, general-purpose, gradually typed language.
 
 Perl6는 고수준, 범용, 점진적인 타입 언어이다.
 
 Perl 6 is multi-paradigmatic. It supports Procedural, Object Oriented, and Functional programming.
 
-Perl 6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수형 프로그래밍을 지원한다.
+Perl6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수형 프로그래밍을 지원한다.
 
 .Perl6 표어(Perl 6 motto):
 * TMTOWTDI (Pronounced Tim Toady): There is more than one way to do it.
@@ -91,11 +91,11 @@ Perl 6는 멀티 패러다임 언어이다. 절차 지향, 객제 지향, 함수
 
 === 전문용어(Jargon)
 * *Perl 6*: Is a language specification with a test suite.
-* *Perl 6*: 테스트 항목(test suite)를 포함한 언어 명세이다.
+* *Perl6*: 테스트 항목(test suite)를 포함한 언어 명세이다.
 
 Implementations that pass the specification test suite are considered Perl 6.
 
-명세 테스트 항목을 통과한 구현은 Perl 6으로 간주됩니다.
+명세 테스트 항목을 통과한 구현은 Perl6으로 간주됩니다.
 
 * *Rakudo*: Is a compiler for Perl 6.
 
