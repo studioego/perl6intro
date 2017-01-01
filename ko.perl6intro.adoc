@@ -452,53 +452,53 @@ The below table lists the most commonly used operators.
 [cols="^.^5m,^.^5m,.^20,.^20m,.^20m", options="header"]
 |===
 
-| 연산자(Operator) | 유형/타입(Type) | 설명(Description) | 예제(Example) | 결과(Result)
+| 연산자(Operator) | 유형(Type) | 설명(Description) | 예제(Example) | 결과(Result)
 
-| + | Infix | Addition | 1 + 2 | 3
+| + | Infix | 덧셈(Addition) | 1 + 2 | 3
 
-| - | Infix | Subtraction | 3 - 1 | 2
+| - | Infix | 뺄셈(Subtraction) | 3 - 1 | 2
 
-| * | Infix | Multiplication | 3 * 2 | 6
+| * | Infix | 곱셈(Multiplication) | 3 * 2 | 6
 
-| ** | Infix | Power | 3 ** 2 | 9
+| ** | Infix | 거듭제곱(Power) | 3 ** 2 | 9
 
-| / | Infix | Division | 3 / 2 | 1.5
+| / | Infix | 나눗셈(Division) | 3 / 2 | 1.5
 
-| div | Infix | Integer Division (rounds down) | 3 div 2 | 1
+| div | Infix | 정수 나눗셈[나머지는 버림]Integer Division (rounds down) | 3 div 2 | 1
 
-| % | Infix | Modulo | 7 % 4 | 3
+| % | Infix | 나머지(Modulo) | 7 % 4 | 3
 
-.2+| %% .2+| Infix .2+| Divisibility | 6 %% 4 | False
+.2+| %% .2+| Infix .2+| 가분성[可分性]/나누어짐(Divisibility) | 6 %% 4 | False
 
 <| 6 %% 3 <| True
 
-| gcd | Infix | Greatest common divisor | 6 gcd 9 | 3
+| gcd | Infix | 최대공약수(Greatest common divisor) | 6 gcd 9 | 3
 
-| lcm | Infix | Least common multiple | 6 lcm 9 | 18
+| lcm | Infix | 최소공배수(Least common multiple) | 6 lcm 9 | 18
 
-| == | Infix | Numeric equal | 9 == 7  | False
+| == | Infix | 수치 등호(Numeric equal) | 9 == 7  | False
 
-| != | Infix | Numeric not equal | 9 != 7  | True
+| != | Infix | 수치 부등호(Numeric not equal) | 9 != 7  | True
 
-| < | Infix | Less than | 9 < 7  | False
+| < | Infix | 미만(Less than) | 9 < 7  | False
 
-| > | Infix | Greater than | 9 > 7  | True
+| > | Infix | 초과(Greater than) | 9 > 7  | True
 
-| \<= | Infix | Less than or equal | 7 \<= 7  | True
+| \<= | Infix | 이하(Less than or equal) | 7 \<= 7  | True
 
-| >= | Infix | Greater than or equal | 9 >= 7  | True
+| >= | Infix | 이상(Greater than or equal) | 9 >= 7  | True
 
-| eq | Infix | String equal | "John" eq "John"  | True
+| eq | Infix | 문자열 동등(String equal) | "John" eq "John"  | True
 
-| ne | Infix | String not equal | "John" ne "Jane"  | True
+| ne | Infix | 문자열 부등(String not equal) | "John" ne "Jane"  | True
 
-| = | Infix | Assignment | my $var = 7  | Assigns the value of `7` to the variable `$var`
+| = | Infix | 배정(Assignment) | my $var = 7  | Assigns the value of `7` to the variable `$var`
 
-.2+| ~ .2+| Infix .2+| String concatenation | 9 ~ 7 | 97
+.2+| ~ .2+| Infix .2+| 문자열 연결(String concatenation) | 9 ~ 7 | 97
 
 <m| "Hi " ~ "there"  <| Hi there
 
-.2+| x .2+| Infix .2+| String replication | 13 x 3  | 131313
+.2+| x .2+| Infix .2+| 문자열 복제(String replication) | 13 x 3  | 131313
 
 <| "Hello " x 3  <| Hello Hello Hello
 
@@ -568,9 +568,11 @@ The below table lists the most commonly used operators.
 
 Adding `R` before any operator will have the effect of reversing its operands.
 
+연산자 앞에 `R`을 추가하면 피연산자를 뒤집을 수 있습니다.
+
 [cols=".^m,.^m,.^m,.^m", options="header"]
 |===
-| Normal Operation | Result | Reversed Operator | Result
+| 일반 연산(Normal Operation) | 결과(Result) | 뒤집기 연산자(Reversed Operator) | 결과(Result)
 
 | 2 / 3 | 0.666667 | 2 R/ 3 | 1.5
 
@@ -583,9 +585,12 @@ Adding `R` before any operator will have the effect of reversing its operands.
 Reduction operators work on lists of values.
 They are formed by surrounding the operator with brackets `[]`
 
+생략 연산자는 값의 리스트에 적용됩니다.
+생략 연산자는 중괄호 `[]` 를 둘러싼 형태로 되어 있습니다.
+
 [cols=".^m,.^m,.^m,.^m", options="header"]
 |===
-| Normal Operation | Result | Reduction Operator | Result
+| 일반 연산(Normal Operation) | 결과(Result) | 생략연산자(Reduction Operator) | 결과(Result)
 
 | 1 + 2 + 3 + 4 + 5 | 15 | [+] 1,2,3,4,5 | 15
 
@@ -625,8 +630,10 @@ say $age;
 
 A specific set of operations can be done on a scalar, depending on the value it holds.
 
+특정 연산 집합은 가지고 있는 값에 따라 스칼라를 수행할 수 있습니다.
+
 [source,perl6]
-.String
+.문자열(String)
 ----
 my $name = 'John Doe';
 say $name.uc;
@@ -645,7 +652,7 @@ NOTE: For the complete list of methods applicable to Strings, see https://docs.p
 주석: Strings에 적합한 메소드 목록은 다음의 링크를 확인 하면 됩니다. https://docs.perl6.org/type/Str
 
 [source,perl6]
-.Integer
+.정수(Integer)
 ----
 my $age = 17;
 say $age.is-prime;
@@ -657,10 +664,10 @@ True
 
 NOTE: For the complete list of methods applicable to Integers, see https://docs.perl6.org/type/Int
 
-주석: Integer에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Int
+주석: 정수(Integer)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Int
 
 [source,perl6]
-.Rational Number
+.유리수(Rational Number)
 ----
 my $age = 2.3;
 say $age.numerator;
@@ -676,8 +683,12 @@ say $age.nude;
 
 NOTE: For the complete list of methods applicable to Rational Numbers, see https://docs.perl6.org/type/Rat
 
+주석: 유리수(Rational Number)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Rat
+
 === 배열(Arrays)
 Arrays are lists containing multiple values.
+
+배열은 복수의 값을 포함하는 리스트입니다.
 
 [source,perl6]
 ----
@@ -687,7 +698,11 @@ say @animals;
 
 Many operations can be done on arrays as shown in the below example:
 
+다음의 예에서 배열에서 많은 연산을 할 수 있다고 볼 수 있습니다:
+
 TIP: The tilde `~` is used for string concatenation.
+
+팁: 틸트 `~` 는 문자열의 연결에 사용됩니다.
 
 [source,perl6]
 .`스크립트(Script)`
@@ -726,7 +741,9 @@ We can access a specific element in the array by specifying its position `@anima
 
 ==== 고정크기 배열(Fixed-size arrays)
 A basic array is declared as following:
+
 기본적인 배열은 다음과 같이 선언된다:
+
 [source,perl6]
 my @array;
 
@@ -742,6 +759,8 @@ my @array[3];
 
 This array will be able to hold a maximum of 3 values, indexed from 0 to 2.
 
+이 배열은 최대 3개의 값을 가질 수 있으며, 첨자는 0부터 2까지 가집니다.
+
 [source,perl6]
 ----
 my @array[3];
@@ -751,6 +770,9 @@ my @array[3];
 ----
 
 You will not be able to add a fourth value to this array:
+
+이 배열에는 4번째 값을 추가할 수 없습니다:
+
 [source,perl6]
 ----
 my @array[3];
@@ -2974,13 +2996,20 @@ It should be combined with a salt link:https://en.wikipedia.org/wiki/Salt_(crypt
 Unicode is a standard for encoding and representing text, that caters for most writing systems in the world. +
 UTF-8 is a character encoding capable of encoding all possible characters, or code points, in Unicode.
 
+유니코드는 인코딩과 문자열 표현을 위한 표준이며, 전 세계의 대부분의 문자 체계를 지원합니다. +
+UTF-8은 유니코드에서 모든 문자 혹은 코드포인트를 인코딩할 수 있는 문자 인코딩입니다.
+
 Characters are defined by a: +
 *Grapheme*: Visual representation. +
 *Code point*: A number assigned to the character.
 
+문자는 다음과 같이 정의되어 있습니다: +
+*문자소(文字素,Grapheme)*: 시각적 표현
+*코드포인트(Code point)*: 문자에 할당된 숫자
+
 === 유니코드의 사용(Using Unicode)
 
-.Let's look at how we can output characters using Unicode
+.유니코드를 이용하여 문자열 출력를 어떻게 할 수 있는지 봅시다(Let's look at how we can output characters using Unicode)
 [source,perl6]
 ----
 say "a";
@@ -2989,13 +3018,21 @@ say "\c[LATIN SMALL LETTER A]";
 ----
 The above 3 lines showcase different ways of building a character:
 
+위의 3줄은 문자를 구성하는 다양한 방법의 예시입니다.
+
 . Writing the character directly (grapheme)
+
+. 문자를 바로 적기 (문자소,grapheme)
 
 . Using `\x` and the code point
 
+. `\x`와 코드포인트를 사용하기
+
 . Using `\c` and the code point name
 
-.Now lets output a smiley
+. `\c`와 코드포인트 이름을 사용하기
+
+.웃는모양 이모지를 출력해봅시다(Now lets output a smiley)
 [source,perl6]
 ----
 say "☺";
@@ -3003,7 +3040,7 @@ say "\x263a";
 say "\c[WHITE SMILING FACE]";
 ----
 
-.Another example combining two code points
+.2개의 코드포인트를 결합하는 다른 예제입니다(Another example combining two code points)
 [source,perl6]
 ----
 say "á";
@@ -3014,11 +3051,17 @@ say "\c[LATIN SMALL LETTER A WITH ACUTE]";
 
 The letter `á` can be written:
 
+`á` 문자는 다음과 같이 쓸 수 있습니다:
+
 * using its unique code point `\x00e1`
+
+* 유일한 코드포인트 `\x00e1`를 사용한다.
 
 * or as a combination of the code points of `a` and acute `\x0061\x0301`
 
-.Some of the methods that can be used:
+* 혹은 `a`의 코드포인트와 양음 약센트 기호(´)의 코드포인트 `\x0061\x0301`를 결합한다
+
+.몇가지 메소드를 사용하는 방법입니다(Some of the methods that can be used):
 [source,perl6]
 ----
 say "á".NFC;
@@ -3037,7 +3080,11 @@ LATIN SMALL LETTER A WITH ACUTE
 `NFD` decomposes the character and return the code point of each part. +
 `uniname` returns the code point name.
 
-.Unicode letters can be used as identifiers:
+`NFC` 는 고유한 코드포인트를 반환합니다. +
+`NFD` 는 문자를 분해하고, 각 부분의 코드포인트를 반환합니다. +
+`uniname` 는 코드포인트 이름을 반환합니다.
+
+.유니코드 문자들은 식별자로로 사용할 수 있습니다.(Unicode letters can be used as identifiers):
 [source,perl6]
 ----
 my $Δ = 1;
@@ -3045,7 +3092,7 @@ $Δ++;
 say $Δ;
 ----
 
-.Unicode can be used to do math:
+.유니코드를 이용하여 산수를 할 수 있습니다.(Unicode can be used to do math):
 [source,perl6]
 ----
 my $var = 2 + ⅒;
