@@ -3004,8 +3004,8 @@ Characters are defined by a: +
 *Code point*: A number assigned to the character.
 
 문자는 다음과 같이 정의되어 있습니다: +
-*문자소(文字素,Grapheme)*: 시각적 표현
-*코드포인트(Code point)*: 문자에 할당된 숫자
+*문자소(文字素,Grapheme)*: 시각적 표현. +
+*코드포인트(Code point)*: 문자에 할당된 숫자.
 
 === 유니코드의 사용(Using Unicode)
 
@@ -3026,11 +3026,11 @@ The above 3 lines showcase different ways of building a character:
 
 . Using `\x` and the code point
 
-. `\x`와 코드포인트를 사용하기
+. `\x` 와 코드포인트를 사용하기
 
 . Using `\c` and the code point name
 
-. `\c`와 코드포인트 이름을 사용하기
+. `\c` 와 코드포인트 이름을 사용하기
 
 .웃는모양 이모지를 출력해봅시다(Now lets output a smiley)
 [source,perl6]
@@ -3055,11 +3055,11 @@ The letter `á` can be written:
 
 * using its unique code point `\x00e1`
 
-* 유일한 코드포인트 `\x00e1`를 사용한다.
+* 유일한 코드포인트 `\x00e1` 를 사용한다
 
 * or as a combination of the code points of `a` and acute `\x0061\x0301`
 
-* 혹은 `a`의 코드포인트와 양음 약센트 기호(´)의 코드포인트 `\x0061\x0301`를 결합한다
+* 혹은 `a`의 코드포인트와 양음 약센트 기호(´)의 코드포인트 `\x0061\x0301` 를 결합하여 사용한다
 
 .몇가지 메소드를 사용하는 방법입니다(Some of the methods that can be used):
 [source,perl6]
