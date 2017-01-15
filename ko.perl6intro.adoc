@@ -198,7 +198,7 @@ typing `perl6 -e 'your code here'` and hitting [Enter].
 단일 행의 소스코드는 또한 비상호작용적인 커맨드라인에서 다음과 같이 실행할 수도 있습니다.
 `perl6 -e '당신이 입력한 소스코드'` 를 입력 후 [Enter]키를 누르면 됩니다.
 
-[팁(TIP)]
+[TIP]
 --
 Rakudo Star bundles a line editor that helps you get the most out of the REPL.
 
@@ -599,7 +599,7 @@ They are formed by surrounding the operator with brackets `[]`
 |===
 
 NOTE: For the complete list of operators, including their precedence, go to https://docs.perl6.org/language/operators
-주석: 연산자 우선순위를 포함한 연산자 목록의 상세내용을 보려면 다음의 링크를 참조하시기 바랍니다. https://docs.perl6.org/language/operators
+NOTE: 연산자 우선순위를 포함한 연산자 목록의 상세내용을 보려면 다음의 링크를 참조하시기 바랍니다. https://docs.perl6.org/language/operators
 
 == 변수(Variables)
 Perl 6 variables are classified into 3 categories: Scalars, Arrays and Hashes.
@@ -649,7 +649,7 @@ eoD nhoJ
 
 NOTE: For the complete list of methods applicable to Strings, see https://docs.perl6.org/type/Str
 
-주석: Strings에 적합한 메소드 목록은 다음의 링크를 확인 하면 됩니다. https://docs.perl6.org/type/Str
+NOTE: Strings에 적합한 메소드 목록은 다음의 링크를 확인 하면 됩니다. https://docs.perl6.org/type/Str
 
 [source,perl6]
 .정수(Integer)
@@ -664,7 +664,7 @@ True
 
 NOTE: For the complete list of methods applicable to Integers, see https://docs.perl6.org/type/Int
 
-주석: 정수(Integer)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Int
+NOTE: 정수(Integer)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Int
 
 [source,perl6]
 .유리수(Rational Number)
@@ -683,7 +683,7 @@ say $age.nude;
 
 NOTE: For the complete list of methods applicable to Rational Numbers, see https://docs.perl6.org/type/Rat
 
-주석: 유리수(Rational Number)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Rat
+NOTE: 유리수(Rational Number)에 대한 적합한 메소드의 목록은 다음의 링크를 확인하면 됩니다. https://docs.perl6.org/type/Rat
 
 === 배열(Arrays)
 Arrays are lists containing multiple values.
@@ -702,7 +702,7 @@ Many operations can be done on arrays as shown in the below example:
 
 TIP: The tilde `~` is used for string concatenation.
 
-팁: 틸트 `~` 는 문자열의 연결에 사용됩니다.
+TIP: 틸트 `~` 는 문자열의 연결에 사용됩니다.
 
 [source,perl6]
 .`스크립트(Script)`
@@ -1599,7 +1599,7 @@ say "1.2 squared is equal to " ~ squared(1.2);
 ====
 
 NOTE: For more info on subroutines and functions, see https://docs.perl6.org/language/functions
-주석: 서브루틴과 함수에 대한 더 많은 정보는 다음을 참조하시기 바랍니다. https://docs.perl6.org/language/functions
+NOTE: 서브루틴과 함수에 대한 더 많은 정보는 다음을 참조하시기 바랍니다. https://docs.perl6.org/language/functions
 
 == 함수형 프로그래밍(Functional Programming)
 In this chapter we will take a look at some of the functionality that facilitates Functional Programming.
@@ -2495,7 +2495,7 @@ Introspection is facilitated by:
 * `~~` is called the smart-match operator.
 It evaluates to _True_ if the object is created from the class it is being compared against or any of its inheritances.
 
-[주석(NOTE)]
+[NOTE]
 --
 For more info on Object Oriented Programming in Perl 6, see:
 
@@ -3105,14 +3105,26 @@ say $var;
 Under normal circumstances, all tasks in a program run sequentially. +
 This might not be a problem unless what you're trying to do is consuming a lot of time.
 
+일반적인 상황에서는, 프로그램의 모든 태스크(task)는 순차적으로 동작합니다. +
+이 활동이 많은 시간을 소비하는 것이 아니라면 문제가 되지 않습니다.
+
 Naturally speaking Perl 6 has features that will enable you to run things in parallel. +
 At this stage, it is important to note that parallelism can mean one of two things:
 
+물론, Perl6는 병렬로 동작할 수 있는 기능을 가지고 있습니다. +
+이번 장에서는 병렬처리(Parallelism)는 2가지 중의 하나를 의미한다는 것이 중요합니다.
+
 * *Task Parallelism*: Two (or more) independent expressions running in parallel.
+
+* *태스크 병렬처리*: 두 개 이상의 독립적인 태스크가 병렬 실행이 됩니다.
 
 * *Data Parallelism*: A single expression iterating over a list of elements in parallel.
 
+* *데이터 병렬처리*: 하나의 식이 요소 목록에 병렬적으로 반복합니다.
+
 Let's begin with the latter.
+
+다음부터 시작해봅시다.
 
 ==== 데이터 병렬처리(Data Parallelism)
 [source,perl6]
@@ -3127,7 +3139,13 @@ We are only doing one operation `@array.map({ is-prime $_ })` +
 The `is-prime` subroutine is being called for each array element sequentially: +
 `is-prime @array[0]` then `is-prime @array[1]` then `is-prime @array[2]` etc.
 
+.위의 예제를 봅시다.
+단지 한 개의 명령어 `@array.map({ is-prime $_ })`로 실행할 수 있습니다.
+`is-prime` 서브루틴은 순차적으로 각각의 배열에 호출을 하고 있습니다.
+`is-prime @array[0]`, `is-prime @array[1]`, `is-prime @array[2]` 등등.
+
 .Fortunately we can call `is-prime` on multiple array elements at the same time:
+.운이 좋게, 동시에 다중 배열 요소를 `is-prime`로 호출할 수 있습니다:
 [source,perl6]
 ----
 my @array = (0..50000);                         #Array population
@@ -3138,11 +3156,18 @@ say now - INIT now;                             #Output the time it took to comp
 Notice the use of `race` in the expression.
 This method will enable parallel iteration of the array elements.
 
+표현식에서 `race` 를 사용하는 것을 알립니다.
+이 메소드는 배열 요소의 병렬 반복을 가능하게 해줍니다.
+
 After running both examples (with and without `race`), compare the time it took for both scripts to complete.
+
+`race`가 포함하거나 포함하지 않은 두 개의 예제를 실행한 후, 스크립트가 완료되는 시간을 비교해봅시다.
 
 [TIP]
 ====
 `race` will not preserve the order of elements. If you wish to do, so use `hyper` instead.
+
+`race` 는 요소의 순서를 보전하지 않습니다. 만약 순서를 보전하고 싶으면, `hyper`로 대신 사용하면 됩니다.
 
 [source,perl6]
 .race
@@ -3161,6 +3186,8 @@ my @result = @array.hyper.map( {$_ + 1} );
 ----
 
 If you run both examples, you should notice that one is sorted and the other is not.
+
+위의 두가지 예제를 실행하면, 하나는 정렬이 되고 하나는 정렬이 되지 않은 것을 알 수 있습니다.
 
 ====
 
@@ -3225,7 +3252,7 @@ This is why, using `race`, `hyper`, `start` and `await` for fairly simple script
 
 === 병행성과 비동기(Concurrency and Asynchrony)
 NOTE: For more info on Concurrency and Asynchronous Programming, see https://docs.perl6.org/language/concurrency
-주석: 병행성과 비동기 프로그래밍에 대한 더 많은 정보에 대하여, https://docs.perl6.org/language/concurrency 를 참조하세요.
+NOTE: 병행성과 비동기 프로그래밍에 대한 더 많은 정보에 대하여, https://docs.perl6.org/language/concurrency 를 참조하세요.
 
 == 커뮤니티(The Community)
 
