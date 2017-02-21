@@ -71,26 +71,27 @@ Implementations that pass the specification test suite are considered Perl 6.
 
 === Installing Perl 6
 .Linux
-. Install Rakudobrew: https://github.com/tadzik/rakudobrew
 
-. Install Rakudo: Type the following command in the terminal `rakudobrew build moar`
-
-. Install Zef: Type the following command in the terminal `rakudobrew build zef`
-
-. Install Task::Star a meta-package for modules included in Rakudo Star: Type the following command in the terminal `zef install Task::Star`
-
+To install Rakudo Star, run the following commands from your terminal:
+----
+wget https://rakudo.perl6.org/downloads/star/rakudo-star-2017.01.tar.gz
+tar xfz rakudo-star-2017.01.tar.gz
+cd rakudo-star-2017.01
+perl Configure.pl --gen-moar --prefix /opt/rakudo-star-2017.01
+make install
+----
 For other options, go to http://rakudo.org/how-to-get-rakudo/#Installing-Rakudo-Star-Linux
 
-.OSX
+.macOS
 Four options are available:
 
 * Follow the same steps listed for installing on Linux
 * Install with homebrew: `brew install rakudo-star`
 * Install with MacPorts: `sudo port install rakudo`
-* Download the latest installer (file with .dmg extension) from http://rakudo.org/downloads/star/
+* Download the latest installer (file with .dmg extension) from https://rakudo.perl6.org/downloads/star/
 
 .Windows
-. Download the latest installer (file with .msi extension) from http://rakudo.org/downloads/star/ +
+. Download the latest installer (file with .msi extension) from https://rakudo.perl6.org/downloads/star/ +
 If your system architecture is 32-bit, download the x86 file; if it's 64-bit, download the x86_64 file.
 . After installation, make sure `C:\rakudo\bin` is in the PATH
 
@@ -128,7 +129,7 @@ Rakudo Star bundles a line editor that helps you get the most out of the REPL.
 If you installed plain Rakudo instead of Rakudo Star then you probably don't have line editing features enabled (using the up and down arrows for history, left and right to edit input, TAB completion).
 Consider running the following command and you shall be all set:
 
-* `zef install Linenoise` would work on Windows, Linux and OSX
+* `zef install Linenoise` would work on Windows, Linux and macOS
 
 * `zef install Readline` if you are on Linux and prefer the _Readline_ library
 --
@@ -1140,7 +1141,7 @@ Two subroutines can be used to run shell commands:
 All shell meta characters are interpreted by the shell, including pipes, redirects, environment variable substitutions and so on.
 
 [source,perl6]
-.Run this if you're on Linux/OSX
+.Run this if you're on Linux/macOS
 ----
 my $name = 'Neo';
 run 'echo', "hello $name";
@@ -2706,7 +2707,7 @@ if $email ~~ $regex {
 
 .Explanation
 `<:L>` matches a single letter +
-`<:L>+` matches one of more letters +
+`<:L>+` matches one or more letters +
 `\.` matches a single [dot] character +
 `\@` matches a single [at] character +
 `<:L+:N>` matches a single letter and a single number +
