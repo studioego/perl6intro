@@ -5,15 +5,19 @@ For those who are new to Perl 6 it should get you up and running.
 
 ### Website
 For online reading navigate to:  
-* English: http://perl6intro.com
-* French: http://fr.perl6intro.com
-* German: http://de.perl6intro.com
-* Japanese: http://ja.perl6intro.com
-* Spanish: http://es.perl6intro.com
-* Portuguese: http://pt.perl6intro.com
-* Dutch: http://nl.perl6intro.com
-* Bulgarian: http://bg.perl6intro.com
-* Chinese: http://zh.perl6intro.com
+* English: https://perl6intro.com
+* French: https://perl6intro.com/fr
+* German: https://perl6intro.com/de
+* Japanese: https://perl6intro.com/ja
+* Spanish: https://perl6intro.com/es
+* Portuguese: https://perl6intro.com/pt
+* Dutch: https://perl6intro.com/nl
+* Bulgarian: https://perl6intro.com/bg
+* Chinese: https://perl6intro.com/zh
+* Italian: https://perl6intro.com/it
+* Turkish: https://perl6intro.com/tr
+* Indonesian: https://perl6intro.com/id
+* Russian: https://perl6intro.com/ru
 
 ### Building the document
 The document is written in asciidoc format and generated using
@@ -61,10 +65,14 @@ Kindly prefix your commit title with the language it is targeting. For example, 
 * Dutch Translation: [Elizabeth Mattijsen](https://github.com/lizmat)
 * Bulgarian Translation: [Красимир Беров](https://github.com/kberov)
 * Chinese Translation: [wenjie1991](https://github.com/wenjie1991) and [ohmycloud](https://ohmycloud.github.io)
+* Italian Translation: [MarsMarsico](https://github.com/marsmarsico)
+* Turkish Translation: [Yalın Pala](https://github.com/yplog)
+* Indonesian Translation: [Heince Kurniawan](https://github.com/heince)
+* Russian Translation: [Alexander Kiryuhin](https://github.com/Altai-man)
 * Korean Translation: [studioego](http://github.com/studioego)
 
 For the full list of contributors: https://github.com/hankache/perl6intro/graphs/contributors
 
 ### License
 Creative Commons Attribution-ShareAlike 4.0 International License.  
-To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
+To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.

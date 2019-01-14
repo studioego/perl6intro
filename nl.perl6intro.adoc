@@ -15,7 +15,7 @@ Naoum Hankache <naoum@hankache.com>; Elizabeth Mattijsen <perl6intro@liz.nl>
 Dit document is bedoeld om je een kort overzicht te geven van de Perl 6 programmeertaal.
 Het is zo opgezet dat je snel leert iets met Perl 6 te kunnen doen.
 
-Sommige onderdelen van dit document verwijzen aan (completere en preciezere) delen van de (Engelstalige) http://docs.perl6.org[Perl 6 documentatie].
+Sommige onderdelen van dit document verwijzen aan (completere en preciezere) delen van de (Engelstalige) https://docs.perl6.org[Perl 6 documentatie].
 Als je meer informatie over een bepaald onderwerp nodig hebt, is dat de beste plaats om die te vinden.
 
 Je zult voorbeelden vinden bij de meeste onderwerpen in dit document.
@@ -53,35 +53,31 @@ In Perl 6 kan met diverse paradigma's geprogrammeerd worden.  Ondersteund worden
 Een implementatie van Perl 6 die al deze tests succesvol kan uitvoeren, mag zich een "Perl 6" implementatie noemen.
 * *Rakudo*: Is een compiler voor Perl 6.
 * *Rakudobrew*: Is een installatie-manager van Perl 6.
-* *Panda*: Is een installatie-programma voor modules.
-* *Rakudo Star*: Is een bundel software waarin zich Rakudo, Panda, documentatie en een verzameling van Perl 6 modules bevindt.
+* *Zef*: Is een installatie-programma voor modules.
+* *Rakudo Star*: Is een bundel software waarin zich Rakudo, zef, documentatie en een verzameling van Perl 6 modules bevindt.
 
 === Installeren van Perl 6
 .Linux
-. Installeer Rakudobrew: https://github.com/tadzik/rakudobrew
+Voer de volgende commando's uit in een Terminal venster om Rakudo Star te installeren:
+----
+wget https://rakudo.perl6.org/downloads/star/rakudo-star-2018.10.tar.gz
+tar xfz rakudo-star-2018.10.tar.gz
+cd rakudo-star-2018.10
+perl Configure.pl --gen-moar --make-install --prefix ~/rakudo
+----
+Zie https://rakudo.org/how-to-get-rakudo/#Installing-Rakud-Star-Linux voor meer opties.
 
-. Installeer Rakudo: Typ het volgende commando in een terminalvenster `rakudobrew build moar`
-
-. Installeer Panda: Typ het volgende commando in een terminalvenster `rakudobrew build panda`
-
-. Ten slotte, installeer Task::Star.  Dit zal alle modules installeren die gebundeld zijn met de Rakudo Star Perl 6 distributie: `panda install Task::Star`
-
-Zie http://rakudo.org/how-to-get-rakudo/#Installing-Rakud-Star-Linux voor meer opties.
-
-.OS X
-OS X kent vier mogelijkheden:
+.MacOS
+MacOS kent vier mogelijkheden:
 
 * Volg dezelfde stappen als voor Linux
-
 * Installeer met homebrew: `brew install rakudo-star`
-
 * Installeer met MacPorts: `sudo port install rakudo`
-
-* Download de meest recente installer (bestand met .dmg extensie) van http://rakudo.org/downloads/star/
+* Download de meest recente installer (bestand met .dmg extensie) van https://rakudo.org/latest/star/macos
 
 .Windows
-. Download de meest recente installer (bestand met .msi extensie) van http://rakudo.org/downloads/star/ +
-Op een 32-bit systeem, download het bestand met x86; op een 64-bit, download het x86_64 bestand.
+. Voor 64-bit systemen: Download de meest recente installer (bestand met .msi extensie) van https://rakudo.org/latest/star/win64 +
+Voor 32-bit systemen: Download de meest recente installer (bestand met .msi extensie) van https://rakudo.org/latest/star/win32
 . Zorg ervoor dat `C:\rakudo\bin` in je PATH is na het installeren.
 
 .Docker
@@ -109,9 +105,9 @@ In de bundel Rakudo Star zit ook een regel-editor die het uitproberen in de REPL
 Als je alleen maar Rakudo hebt geïnstalleerd, en niet Rakudo Star, dan heb je standaard niet alle handige regel-editor mogelijkheden (zoals pijltje naar onder/boven om eerder ingetypte regels te bekijken, pijltje links/rechts om je invoer te veranderen, en automatisch invullen met TAB).
 Voer het volgende commando uit om deze functionaliteit te installeren:
 
-* `panda install Linenoise` werkt op Windows, Linux en OS X
+* `zef install Linenoise` werkt op Windows, Linux en OS X
 
-* `panda install Readline` als je op Linux werkt en liever werkt met de _Readline_ bibliotheek
+* `zef install Readline` als je op Linux werkt en liever werkt met de _Readline_ bibliotheek
 --
 
 === Bewerkingsprogramma's (Editors)
@@ -120,7 +116,7 @@ Aangezien je het grootste deel van je tijd Perl 6 programma's in bestanden aan h
 Ik gebruik https://atom.io/[Atom] en raadt het gebruik daarvan ook aan.  Het is een moderne tekst-editor die standaard uitgeleverd wordt met Perl 6 syntax-markeerder.
 https://atom.io/packages/language-perl6fe[Perl6-fe] is een alternatieve Perl 6 syntax-markeerder voor Atom, afgeleid van het origineel, maar met vele bug-fixes en toevoegingen.
 
-Andere mensen in de gemeenschap gebruiken ook http://www.vim.org/[Vim], https://www.gnu.org/software/emacs/[Emacs] of http://padre.perlide.org/[Padre].
+Andere mensen in de gemeenschap gebruiken ook https://www.vim.org/[Vim], https://www.gnu.org/software/emacs/[Emacs] of http://padre.perlide.org/[Padre].
 
 Recente versies van Vim worden standaard uitgeleverd met een syntax-markeerder. Emacs en Padre hebben de installatie van extra bibliotheken nodig.
 
@@ -2697,11 +2693,11 @@ Herbruikbaarheid is een erg belangrijke eigenschap waardoor programmeurs niet te
 
 Perl 6 maakt het mogelijk om *modules* aan te maken en die te distribueren.  Elke module is een bundel van functionaliteit die kan worden gebruikt zodra deze is geïnstalleerd.
 
-_Panda_ is een programma om modules te beheren dat deel is van Rakudo Star.
+_Zef_ is een programma om modules te beheren dat deel is van Rakudo Star.
 
 Om een specifieke module te installeren moet men onderstaand commando in een terminalvenster intypen:
 
-`panda install "module name"`
+`zef install "module name"`
 
 NOTE: Een overzicht van beschikbare Perl 6 modules is te vinden op: https://modules.perl6.org/
 
@@ -2714,7 +2710,7 @@ Het idee daarachter is dat in het geval dat een database wordt gestolen, de dief
 Laat ons een script schrijven dat een MD5 hash van een wachtwoord maakt voordat het in een database wordt opgeslagen.
 
 Gelukkig is er al een Perl 6 module geimplementeerd voor het MD5 algoritme.  Laten we het eerst installeren: +
-`panda install Digest::MD5`
+`zef install Digest::MD5`
 
 Voer daarna onderstaand script uit:
 [source,perl6]
