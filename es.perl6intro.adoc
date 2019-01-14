@@ -59,26 +59,30 @@ Las implementaciones que pasan el banco de pruebas de la especificación se cons
 
 === Instalación de Perl 6
 .Linux
-. Instalación de Rakudobrew: https://github.com/tadzik/rakudobrew
+Instalación de Rakudo Star desde la línea de comandos:
+----
+wget https://rakudo.perl6.org/downloads/star/rakudo-star-2018.10.tar.gz
+tar xfz rakudo-star-2018.10.tar.gz
+cd rakudo-star-2018.10
+perl Configure.pl --gen-moar --make-install --prefix ~/rakudo
+----
+Tienes más información en http://rakudo.org/how-to-get-rakudo/#Installing-Rakudo-Star-Linux
 
-. Instalación de Rakudo: En el terminal, introduce el siguiente comando `rakudobrew build moar`
-
-. Instalación de Zef: En el terminal, introduce el siguiente comando `rakudobrew build zef`
-
-. Instalación de los módulos incluidos en la distribución Rakudo Star Perl6 `zef install Task::Star`
-
-.OSX
+.macOS
 
 Tienes cuatro opciones:
 
 * Sigue los mismos pasos de la instalación para Linux
 * Realizar la instalación con homebrew: `brew install rakudo-star`
 * Realizar la instalación con MacPorts: `sudo port install rakudo`
-* Descargar el último instalador (archivo con extensión .dmg) desde http://rakudo.org/download/star/
+* Descargar el último instalador (archivo con extensión .dmg) desde
+https://rakudo.org/latest/star/macos
 
 .Windows
-. Descarga el instalador más reciente (.msi) desde http://rakudo.org/downloads/star/ +
-Descarga la versión de 32-bit o 64-bit dependiendo de tu arquitectura.
+. Para arquitectura 64-bit: descarga el instalador más reciente (.msi) desde
+https://rakudo.org/latest/star/win64 +
+Para arquitectura 32-bit: descarga el instalador más reciente (.msi) desde
+https://rakudo.org/latest/star/win32
 . Finalizada la instalación, comprueba que C:\rakudo\bin figura en el PATH del sistema.
 
 .Docker
@@ -89,7 +93,7 @@ Descarga la versión de 32-bit o 64-bit dependiendo de tu arquitectura.
 
 Puedes ejecutar código Perl 6 mediante REPL (Read-Eval-Print Loop). Para ello, abre un terminal, introduce `perl6` y pulsa [Enter]. Aparecerá el prompt `>`. Ahora introduce una línea de código, pulsa [Enter] y aparecerá una línea nueva con el resultado. Puedes introducir otra línea o `exit` y pulsar [Enter] para salir al sistema.
 
-También puedes escribir tu código de Perl 6 en un archivo de texto, guardarlo y ejecutarlo. Es recomendable que el nombre de este archivo de texto tenga la extensión `.pl6`. Ejecuta el archivo de esta forma: `perl6 nombre-archivo.pl6` desde un terminal y pulsa [Enter]. La ejecución suele mostrar el resultado de sentencias como `say` para visualizar por la salida estándar contenidos de texto con un salto de línea al final .
+También puedes escribir tu código de Perl 6 en un archivo de texto, guardarlo y ejecutarlo. Es recomendable que el nombre de este archivo de texto tenga la extensión `.p6`. Ejecuta el archivo de esta forma: `perl6 nombre-archivo.p6` desde un terminal y pulsa [Enter]. La ejecución suele mostrar el resultado de sentencias como `say` para visualizar por la salida estándar contenidos de texto con un salto de línea al final .
 
 REPL normalmente se utiliza para probar trozos pequeños de código, como una línea. En el caso de programas con más de una línea de código es recomendable guardarlos en un archivo y ejecutarlos como hemos visto.
 
@@ -101,7 +105,7 @@ Rakudo Star incorpora un editor de líneas con más funcionalidades para REPL.
 
 Si instalaste Rakudo en lugar de Rakudo Star es probable que no tengas estas funcionalidades (historial con flechas verticales, edición de la línea con flechas horizontales, autocompletar con TAB, etc.). Para instalar estas funcionalidades utiliza estos comandos:
 
-* `zef install Linenoise` debe funcionar en Windows, Linux y OSX
+* `zef install Linenoise` debe funcionar en Windows, Linux y macOS
 
 * `zef install Readline` si tienes Linux y prefieres la librería _Readline_
 --
@@ -128,7 +132,7 @@ que también puede escribirse como:
 'hola mundo'.say;
 
 === Sintaxis general
-Perl 6 tiene *forma libre*, esto es, eres libre (casi siempre) de utilizar cualquier cantidad de espacios en blanco.
+Perl 6 tiene *forma libre*: generalmente los espacios en blanco carecen de significado salvo en ciertos casos.
 
 *Una Sentencia* normalmente es una línea lógica de código que finaliza en punto y coma:
 `say "Hola" if True;`
@@ -348,15 +352,15 @@ La siguiente tabla muestra los operadores más utilizados.
 
 | ! | Prefijo | Fuerza el operador a un valor booleano y devuelve la negación | !4 | False
 
-| .. | Infijo | Constructor de Series |  0..5  | Crea una serie de 0 a 5
+| .. | Infijo | Constructor de Rangos |  0..5  | Crea un rango cuyo intervalo es [0, 5] footnoteref:[intervalos,Notación de intervalos: https://es.wikipedia.org/wiki/Intervalo_(matemática)#Notación]
 
-| ..^ | Infijo | Constructor de Series |  0..^5  | Crea una serie de 0 a 4
+| ..^ | Infijo | Constructor de Rangos |  0..^5  | Crea un rango cuyo intervalo es [0, 5) footnoteref:[intervalos]
 
-| ^.. | Infijo | Constructor de Series |  0^..5  | Crea una serie de 1 a 5
+| ^.. | Infijo | Constructor de Rangos |  0^..5  | Crea un rango cuyo intervalo es (0, 5] footnoteref:[intervalos]
 
-| \^..^ | Infijo | Constructor de Series |  0\^..^5  | Crea una serie de 1 a 4
+| \^..^ | Infijo | Constructor de Rangos |  0\^..^5  | Crea un rango cuyo intervalo es (0, 5) footnoteref:[intervalos]
 
-| ^ | Prefijo | Constructor de Series |  ^5  | Igual que 0..^5 Crea una serie de 0 a 4
+| ^ | Prefijo | Constructor de Rangos |  ^5  | Igual que 0..^5 Crea un rango cuyo intervalo es [0, 5) footnoteref:[intervalos]
 
 | ... | Infijo | Constructor de listas perezosas |  0...9999  |  devuelve los elementos si son solicitados
 
@@ -1108,7 +1112,7 @@ Podemos utilizar dos subrutinas para ejecutar comandos de la shell:
 Todos los caracteres especiales los interpreta la shell, como pueden ser las tuberías, redirecciones, sustitución de variables de entorno, etc.
 
 [source,perl6]
-.Ejecuta el siguiente script en Linux/OSX
+.Ejecuta el siguiente script en Linux/macOS
 ----
 my $nombre = 'Neo';
 run 'echo', "Hola $nombre";
@@ -1184,17 +1188,17 @@ rmdir "carpeta-nueva";
 
 También puedes comprobar si una ruta existe y si es un archivo o una carpeta:
 
-Crea una carpeta vacía llamada `carpeta123`, un archivo vacío llamado `script123.pl6` y el siguiente script:
+Crea una carpeta vacía llamada `carpeta123`, un archivo vacío llamado `script123.p6` y el siguiente script:
 
 [source,perl6]
 ----
-say "script123.pl6".IO.e;
+say "script123.p6".IO.e;
 say "carpeta123".IO.e;
 
-say "script123.pl6".IO.d;
+say "script123.p6".IO.d;
 say "carpeta123".IO.d;
 
-say "script123.pl6".IO.f;
+say "script123.p6".IO.f;
 say "carpeta123".IO.f;
 ----
 
@@ -1754,7 +1758,7 @@ my $juan = Humano.new(nombre => 'Juan', edad => 23, sexo => 'M', nacionalidad =>
 say $juan;
 ----
 Si añades al script la siguiente sentencia: `say $juan.edad;`
-devolverá el siguiente error: `Method 'edad' not found for invocant of class 'Humano'` 
+devolverá el siguiente error: `Method 'edad' not found for invocant of class 'Humano'`
 debido a que `$!edad` es un atributo privado y solo puede utilizarse desde dentro del objeto. Como hemos visto, tendremos un error al intentar acceder a este atributo desde fuera del objeto.
 
 Sustituye `has $!edad` por `has $.edad` y comprueba el resultado de `say $juan.edad;`
@@ -2287,7 +2291,7 @@ say "¿Qué haces hoy?"
 .`Salida`
 ----
 Type check failed in assignment to $nombre; expected Str but got Int
-  in block <unit> at exceptions.pl6 line 2
+  in block <unit> at exceptions.p6 line 2
 ----
 Debes tener en cuenta que cuando se produce un error (en este caso, debido a la asignación de un número a una variable de texto) el programa se interrumpirá y no evaluará cualquier otra línea de código.
 
@@ -2473,17 +2477,17 @@ if "Juan-Dios" ~~ / \s / {
 
 === Propiedades Unicode
 Lo normal es comparar categorías de caracteres como hemos visto. +
-Dicho esto, podemos tener un enfoque más sistemático utilizando propiedades Unicode. +
+Dicho esto, podemos tener un enfoque más sistemático utilizando propiedades Unicode, de forma que puedas realizar coincidencias con categorías de caracteres dentro y fuera del estandar ASCII. +
 Las propiedades Unicode se indican entre `<: >`
 
 [source,perl6]
 ----
-if "Juan123" ~~ / <:N> / {
+if "Números Devanagari १२३" ~~ / <:N> / {
   say "Contiene un número";
 } else {
   say "No contiene un número"
 }
-if "Juan-Dios" ~~ / <:Lu> / {
+if "Привет, Иван." ~~ / <:Lu> / {
   say "Contiene una letra en mayúsculas";
 } else {
   say "No contiene una letra en mayúsculas"
@@ -2941,6 +2945,204 @@ Debido a esto, el uso de `race`, `hyper`, `start` y `await` en scripts muy simpl
 === Concurrencia y Asincronía
 NOTE: En https://docs.perl6.org/language/concurrency tienes más información sobre Concurrencia y Programación Asíncrona.
 
+== Interfaz de Llamadas Nativas
+
+Perl 6 nos permite utilizar librerías de C mediante la Interfaz de Llamadas Nativas (NativeCall).
+
+`NativeCall` es un módulo estandar que viene incluido con Perl 6 y ofrece un conjunto de funcionalidades para facilitar el trabajo con la interfaz entre Perl 6 y C.
+
+=== Llamada a una función
+
+Consideremos un programa en C con una función llamada `holadesdec`.
+Esta función visualiza `Hola desde C` en el terminal. No acepta argumentos ni devuelve ningún valor.
+
+[source,c]
+.ncitest.c
+----
+#include <stdio.h>
+
+void holadesdec () {
+  printf("Hola desde C\n");
+}
+----
+
+Dependiendo de tu sistema operativo, compila el código de C anterior en una librería de C.
+
+.En Linux:
+----
+gcc -c -fpic ncitest.c
+gcc -shared -o libncitest.so ncitest.o
+----
+
+.En Windows:
+----
+gcc -c ncitest.c
+gcc -shared -o ncitest.dll ncitest.o
+----
+
+.En MacOS:
+----
+gcc -dynamiclib -o libncitest.dylib ncitest.c
+----
+
+En la misma carpeta donde has compilado la librería en C, crea un nuevo archivo de Perl 6 que contenga el siguiente código y ejecútalo.
+
+[source,perl6]
+.ncitest.p6
+----
+use NativeCall;
+
+constant LIBPATH = "$*CWD/ncitest";
+sub holadesdec() is native(LIBPATH) { * }
+
+holadesdec();
+----
+
+.Explicación:
+Lo primero es declarar que vamos a utilizar el módulo `NativeCall`. +
+Después creamos la constante LIBPATH que contiene la ruta de la librería de C. +
+Como puedes ver, `$*CWD` contiene la ruta de la carpeta actual. +
+Después creamos una subrutina de Perl 6 denominada `holadesdec()` que se corresponde y tiene el mismo nombre que la función que reside en la librería de C, la cual se encuentra en `LIBPATH`. +
+Todo esto se hace utilizando `is native`. +
+Por último realizamos la llamada a la subrutina de Perl 6.
+
+En esencia, todo se reduce a declarar una subrutina con `is native` y el nombre de la biblioteca de C.
+
+=== Cambiando el nombre a una función
+
+Hemos visto cómo realizar una llamada a una función simple de C mediante una subrutina de Perl 6 con el mismo nombre y utilizando `is native`.
+
+Es posible que en algunos casos necesitemos que el nombre de la función de Perl 6 sea distinto al de la función en C. +
+Para hacerlo utilizamos `is symbol`.
+
+Vamos a modificar el script de Perl 6 que hemos visto de forma que la función de Perl 6 se llame `hola` en lugar de `holadesdec`.
+
+[source,perl6]
+.ncitest.p6
+----
+use NativeCall;
+
+constant LIBPATH = "$*CWD/ncitest";
+sub hola() is native(LIBPATH) is symbol('holadesdec') { * }
+
+hola();
+----
+
+.Explicación:
+En caso de que la subrutina de Perl 6 tenga un nombre distinto al de la función de C correspondiente, utilizamos `is symbol` con el nombre de la función de C original.
+
+=== Pasando Argumentos
+
+Vamos a modificar y compilar la librería de C y el script de Perl 6 de forma que acepten, en C un argumento de tipo `char*` y el mismo argumento en Perl 6 pero de tipo `Str`.
+
+[source,c]
+.ncitest.c
+----
+#include <stdio.h>
+
+void holadesdec (char* nombre) {
+  printf("¡Hola, %s! ¡Esto es C!\n", nombre);
+}
+----
+
+[source,perl6]
+.ncitest.p6
+----
+use NativeCall;
+
+constant LIBPATH = "$*CWD/ncitest";
+sub hola(Str) is native(LIBPATH) is symbol('holadesdec') { * }
+
+hola('Juana');
+----
+
+=== Valores de retorno
+
+Vamos a repetir el proceso una vez más para crear una calculadora simple que toma dos enteros, los suma, devuelve el resultado y lo visualiza. +
+Compilamos la librería de C y ejecutamos el script de Perl 6.
+
+[source,c]
+.ncitest.c
+----
+int suma (int a, int b) {
+  return (a + b);
+}
+----
+
+[source,perl6]
+.ncitest.p6
+----
+use NativeCall;
+
+constant LIBPATH = "$*CWD/ncitest";
+sub suma(int32,int32) returns int32 is native(LIBPATH) { * }
+
+say suma(2,3);
+----
+
+Como puedes ver, ambas funciones aceptan dos enteros y devuelven uno (`int` en C y `int32` en Perl 6).
+
+=== Tipos
+
+Te preguntarás por qué en el script de Perl 6 utilizamos `int32` en lugar de `int`. +
+En Perl 6 no pueden utilizarse algunos tipos como `Int`, `Rat`, etc. para pasarlos y recibirlos como valores de una función de C. +
+En Perl 6 hay que utilizar los mismos tipos que en C.
+
+Por fortuna, Perl 6 proporciona muchos tipos que se corresponden con los de C.
+
+[cols="^.^,^.^",options="header"]
+|===
+
+| Tipo de C | Tipo de Perl 6
+
+| `char` .2+| `int8`
+
+| `int8_t`
+
+| `short` .2+| `int16`
+
+| `int16_t`
+
+| `int` .2+| `int32`
+
+| `int32_t`
+
+| `int64_t` | `int64`
+
+| `unsigned char` .2+| `uint8`
+
+| `uint8_t`
+
+| `unsigned short` .2+| `uint16`
+
+| `uint16_t`
+
+| `unsigned int` .2+| `uint32`
+
+| `uint32_t`
+
+| `uint64_t` | `uint64`
+
+| `long` | `long`
+
+| `long long` | `longlong`
+
+| `float` | `num32`
+
+| `double` | `num64`
+
+| `size_t` | `size_t`
+
+| `bool` | `bool`
+
+| `char*` (String) | `Str`
+
+| Arrays: Por ejemplo `int*` (Array de int) y `double*` (Array de double) | `CArray`: Por ejemplo `CArray[int32]` y `CArray[num64]`
+
+|===
+
+NOTE: En https://docs.perl6.org/language/nativecall tienes más información sobre la Interfaz de Llamadas Nativas.
+
 == La Comunidad
 * En el canal de IRC link:irc://irc.freenode.net/#perl6[#perl6] encontrarás el lugar principal para hablar de Perl 6. Consulta: https://perl6.org/community/irc si tienes dudas.
 
@@ -2949,3 +3151,5 @@ NOTE: En https://docs.perl6.org/language/concurrency tienes más información so
 * Mantente al día con los blogs que tratan de Perl 6 en link:http://pl6anet.org[pl6anet].
 
 * Suscríbete en el apartado de Perl6 de Reddit clicando en link:https://www.reddit.com/r/perl6/[/r/perl6].
+
+* Alertas de los desarrolladores de Perl 6, para mantenerse al día con los cambios importantes link:https://alerts.perl6.org[P6lert]
